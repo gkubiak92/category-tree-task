@@ -1,4 +1,4 @@
-import { INPUT } from "./input";
+import { INPUT } from './input';
 
 export interface Category {
   id: number;
@@ -10,6 +10,8 @@ export interface Category {
   children: Category[];
 }
 
-export const getCategories = async (): Promise<{ data: Category[] }> => ({
+export type RequestFn = () => Promise<{ data: Category[] }>;
+
+export const getCategories: RequestFn = async () => ({
   data: INPUT,
 });
